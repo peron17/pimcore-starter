@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    image: ariopra/pimcore6-alpine:php-7.2
+    volumes:
+      - .:/var/www/html
+    networks:
+      - backend
+  web:
+      image: nginx:stable-alpine
+      ports:
+        - 8080:80
+      volumes:
+        - .:/var/www/html
+        - ./bebeclub-revamp.conf:/etc/nginx/conf.d/bebeclub-revamp.conf
+      networks:
+        - backend
+      depends_on:
+        - app
+networks:
+  backend:
