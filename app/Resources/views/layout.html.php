@@ -79,7 +79,9 @@ $mainNavigation = $this->navigation()->build(['active' => $document, 'root' => $
     </header>
 
     <main role="main">
+        <?php if (!empty($this->navigation()->breadcrumbs())): ?>
         <?= $this->template('breadcrumb.html.php', ['mainNavigation'=>$mainNavigation]) ?>
+        <?php endif ?>
 
         <?php $this->slots()->output('_content') ?>
     </main>
