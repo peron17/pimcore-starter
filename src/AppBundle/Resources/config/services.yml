@@ -29,3 +29,5 @@ services:
         resource: '../../Command/*'
         tags: ['console.command']
         
+    # Services
+    AppBundle\Services\Articles: ~
