@@ -1,5 +1,37 @@
-.big-banner {
-    max-height: 300px;
-    background-position: center;
-    background-size: cover;
+main {
+    margin-top: 1rem;
+}
+.bg-dark {
+    background-color: #dc3545!important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,1);
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-weight: 500;
+}
+footer {
+    background-color: #117a8b;
+    color: #ffffff;
+    margin-top: 2rem;
+    padding: 2rem 0 .5rem;
+}
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer hr {
+    background-color: #17a2b8;
+}
+
+.copyright {
+    color: #dddddd;
 }

@@ -59,14 +59,14 @@ $web_name = \Pimcore\Model\WebsiteSetting::getByName('web_name');
         </div>
         <div class="d-inline-block ml-4">
             <?php if (!$this->get('session')->get('_token')): ?>
-            <a href="" class="btn btn-sm btn-success">
+            <a href="/auth/login" class="btn btn-sm btn-success">
                 <i class="fa fa-sign-in"></i> Login
             </a>
             <?php else: ?>
-            <a href="" class="btn btn-sm btn-primary mr-2">
+            <a href="/auth/profile" class="btn btn-sm btn-primary mr-2">
                 <i class="fa fa-person"></i> Profile
             </a>
-            <a href="" class="btn btn-sm btn-warning">
+            <a href="/auth/logout" class="btn btn-sm btn-warning">
                 <i class="fa fa-sign-out"></i> Logout
             </a>
             <?php endif ?>

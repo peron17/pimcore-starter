@@ -30,11 +30,16 @@ class ArticleController extends FrontendController
 
     public function defaultAction(Request $request)
     {
-        $this->view->articles = $this->articles->getAll();
+        $this->view->categories = $this->articles->getCategories();
     }
 
     public function detailAction(Request $request, Breadcrumbs $breadcrumbs)
     {
         $this->view->article = $this->articles->getDetail($request->get('slug'));
+    }
+
+    public function categoryAction(Request $request)
+    {
+        
     }
 }

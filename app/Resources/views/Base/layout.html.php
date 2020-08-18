@@ -33,7 +33,12 @@ $mainNavigation = $this->navigation()->build(['active' => $document, 'root' => $
     <?php $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
     <?= $this->headMeta() ?>
 
+    <?php $this->headTitle()->append('Pimcore') ?>
+    <?php $this->headTitle()->setSeparator(" | ") ?>
+    <?= $this->headTitle() ?>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <?php $this->headLink()->appendStylesheet('/theme/css/bootstrap.min.css') ?>
     <?php $this->headLink()->appendStylesheet('/theme/css/custom.css') ?>
     <?php $this->headLink(['rel' => 'icon', 'href' => '/theme/img/favicon.png'], 'PREPEND') ?>
@@ -44,10 +49,18 @@ $mainNavigation = $this->navigation()->build(['active' => $document, 'root' => $
     <!--navigation  -->
     <?= $this->navigation()->menu()->renderPartial($mainNavigation, 'Base/nav.html.php')?>
     <main>
-        <?php $this->slots()->output('_content') ?>
+        <div class="container">
+            <?= $this->snippet('breadcrumb') ?>
+
+            <?php $this->slots()->output('_content') ?>
+        </div>
     </main>
 
-
+    <footer>
+        <div class="container text-center">
+            <?= $this->snippet('footer') ?>
+        </div>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

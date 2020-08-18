@@ -14,23 +14,32 @@
  */
 namespace AppBundle\Document\Areabrick;
 
+use AppBundle\Services\Articles;
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
+use Pimcore\Model\DataObject;
+use Pimcore\Model\Document\Tag\Area\Info;
 
-class Jumbotron extends AbstractTemplateAreabrick
+class ArticleList extends AbstractTemplateAreabrick
 {
     public function getName()
     {
-        return 'Jumbotron Headline Text';   
+        return 'Article List';   
     }
 
     public function getDescription()
     {
-        return 'Jumbotron Headline Text';   
+        return ' list untuk menampilkan semua article';   
     }
 
-    public function hasEditTemplate()
+    public function action(Info $info)
     {
-        return true;
+        $article = new Articles();
+        // $article_list = new DataObject\Articles\Listing();
+        // $article_list->setOrderKey('o_id');
+        // $article_list->setOrder("desc");
+        // $article_list->load();
+
+        $info->getView()->article_list = $article->getAll();
     }
 
     public function getTemplateLocation()
