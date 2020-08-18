@@ -16,16 +16,16 @@ namespace AppBundle\Document\Areabrick;
 
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
-class Jumbotron extends AbstractTemplateAreabrick
+class Points extends AbstractTemplateAreabrick
 {
     public function getName()
     {
-        return 'Jumbotron Headline Text';   
+        return 'Points';   
     }
 
     public function getDescription()
     {
-        return 'Jumbotron Headline Text';   
+        return 'Points';   
     }
 
     public function hasEditTemplate()

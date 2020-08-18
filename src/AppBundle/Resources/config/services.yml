@@ -31,3 +31,4 @@ services:
         
     # Services
     AppBundle\Services\Articles: ~
+    AppBundle\Services\Member: ~

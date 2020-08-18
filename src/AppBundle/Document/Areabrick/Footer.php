@@ -16,16 +16,16 @@ namespace AppBundle\Document\Areabrick;
 
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
 
-class Jumbotron extends AbstractTemplateAreabrick
+class Footer extends AbstractTemplateAreabrick
 {
     public function getName()
     {
-        return 'Jumbotron Headline Text';   
+        return 'Footer';   
     }
 
     public function getDescription()
     {
-        return 'Jumbotron Headline Text';   
+        return ' | Footer Layout';   
     }
 
     public function hasEditTemplate()

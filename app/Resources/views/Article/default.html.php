@@ -1,23 +1,36 @@
-<?= $this->extend('layout.html.php') ?>
+<?= $this->extend('Base/layout.html.php') ?>
 
-<section class="my-4" id="content">
-    <div class="container">
-        <div class="row">
-        <?php foreach ($articles as $article): ?>
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <a href="<?= $this->path('articles_detail', [
-                        'category' => $article->getCategory()->getSlug(),
-                        'slug' => $article->getSlug()
-                    ]) ?>">
-                        <h3 class="card-title"><?= $article->getTitle() ?></h3>
-                    </a>
-                    <p><?= substr($article->getContent(), 0, 300).'...' ?></p>
-                </div>
-            </div>
-        </div>
-        <?php endforeach ?>
-        </div>
+<?php
+$widget_list = [];
+if ($widget = \Pimcore\Model\WebsiteSetting::getByName('widget_article')) {
+    $list = $widget->getData();
+    if (!empty($list)) {
+        foreach ($list->getWidgetList() as $w) {
+            $widget_list[] = $w->getWidgetID();
+        }
+    }
+}
+?>
+
+<div class="row justify-content-between">
+    <div class="col-lg-8">
+        <?= $this->areablock("content", [
+            'allowed' => $widget_list
+        ]); ?>
     </div>
-</section>
+    <div class="col-lg-4 pl-5">
+        <h3>Categories</h3>
+        <ul class="nav flex-column">
+            <?php foreach ($categories as $category): ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="<?= $this->path('category_detail', [
+                        'category' => $category->getSlug()
+                    ]) ?>">
+                        <i class="<?= $category->getIcon() ?> mr-2"></i>
+                        <?= $category->getTitle() ?>
+                    </a>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+</div>

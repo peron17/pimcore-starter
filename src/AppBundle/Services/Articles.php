@@ -15,15 +15,17 @@
 namespace AppBundle\Services;
 
 use Pimcore\Model\DataObject;
+use Pimcore\Model\DataObject\ArticlesCategory\Listing;
 use voku\helper\AntiXSS;
 
 class Articles 
 {
-    protected $model, $xss;
+    protected $model, $xss, $category;
 
     public function __construct()
     {
         $this->model = new DataObject\Articles\Listing();
+        $this->category = new DataObject\ArticlesCategory\Listing();
         $this->xss = new AntiXSS;
     }
 
@@ -40,5 +42,12 @@ class Articles
         $this->model->setCondition("Slug = ? ", [$slug]);
         $this->model->load();
         return $this->model->getObjects()[0];
+    }
+
+    public function getCategories()
+    {
+        $this->category->setOrderKey("oo_id");
+        $this->category->setOrder("desc");
+        return $this->category;
     }
 }

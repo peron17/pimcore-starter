@@ -17,6 +17,10 @@ namespace AppBundle\Controller;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Templating\Helper\Navigation;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ {
+    Route,
+    Method
+};
 
 class HomeController extends FrontendController
 {
@@ -25,12 +29,21 @@ class HomeController extends FrontendController
         
     }
 
+    /**
+     * @Route("/", name="home")
+     * @Method("GET")
+     */
     public function homeAction(Request $request)
     {
         
     }
 
-    public function testAction(Request $request)
+    public function footerAction(Request $request)
+    {
+        
+    }
+
+    public function breadcrumbAction(Request $request)
     {
         
     }
