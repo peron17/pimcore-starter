@@ -8,7 +8,7 @@
   },
   "require": {
     "php": ">=7.2",
-    "pimcore/pimcore": "~6.6.0",
+    "pimcore/pimcore": "~6.8.8",
     "voku/anti-xss": "^4.1",
     "wikimedia/composer-merge-plugin": "^1.4"
   },
